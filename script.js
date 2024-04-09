@@ -48,28 +48,54 @@ function displayProducts(products) {
   productResults.innerHTML = cardsHtml;
 }
 
-
 function addToCart(productId) {
   fetch(`https://dummyjson.com/products/${productId}`)
     .then(response => response.json())
     .then(product => {
       shoppingCartItems.push(product);
-      updateCart();
-      Swal.fire('Producto añadido', `${product.title} ha sido añadido al carrito.`, 'success');
+      displaycart();
+      let timerInterval;
+      Swal.fire({
+        title: "Producto añadido",
+        html: `${product.title} ha sido añadido al carrito.`,
+        timer: 2000,
+        icon: "success",
+        timerProgressBar: true,
+        showConfirmButton: false
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });     
     });
 }
 
 function removeFromCart(index) {
     shoppingCartItems.splice(index, 1);
-    updateCart();
+    displaycart();
 }
-  
-function updateCart() {
-    const shoppingCart = document.getElementById('shoppingCart');
-    shoppingCart.innerHTML = '<h4>Carrito</h4>';
+
+function displaycart(){
+  document.getElementById("count").innerHTML=shoppingCartItems.length;
+  const shoppingCart = document.getElementById('cartItem');
+  shoppingCart.innerHTML = "";
+
+  if(shoppingCartItems.length==0){
+    document.getElementById('cartItem').innerHTML = "Tu carrito esta vacio";
+  }
+  else{
+    const shoppingCart = document.getElementById('cartItem');
     shoppingCartItems.forEach((item, index) => {
-        shoppingCart.innerHTML += `<p>${item.title} - ${item.price}$ <span class="remove-item" onclick="removeFromCart(${index})" style="cursor:pointer;color:red;">X</span></p>`;
+      shoppingCart.innerHTML += `<div class='cart-item'>
+      <div class='row-img'>
+          <img class='rowimg' src=${item.thumbnail}>
+      </div>
+      <p style='font-size:12px;'>${item.title}</p>
+      <h2 style='font-size: 15px;'>$ ${item.price}</h2>`+
+      `<i class='fa-solid fa-trash' onclick='removeFromCart(${index})'></i></div>`
     });
+  }
 }
 
 loadProducts();
