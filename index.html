@@ -14,32 +14,32 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <!-- <h1>LISTA DE PRODUCTOS</h1> -->
-            <div class="row my-2">
-                <div class="col">
-                <input type="number" id="minPrice" placeholder="Precio mínimo" class="form-control">
-                </div>
-                <div class="col">
-                <input type="text" id="category" placeholder="Categoria" class="form-control">
-                </div>
-                <div class="col">
-                <input type="text" id="brand" placeholder="Marca" class="form-control">
-                </div>
-                <div class="col">
-                <button id="applyFilter" class="btn btn-primary">Aplicar filtro</button>
-                </div>
-            </div>
-            <div class="icon-cart"><i class="fa-solid fa-cart-shopping fa-lg"></i><span id="count">0</span></div>
+        <header class="pt-2 pb-2">
+            <h1 class="navbar-brand">LISTA DE PRODUCTOS</h1>
+            <nav class="navbar navbar-light">              
+                <form class="form-inline">
+                    <input class="form-control col-3 mr-2" type="number" placeholder="Precio mínimo" aria-label="Precio mínimo" id="minPrice">
+                    <input class="form-control col-3 mr-2" type="text" placeholder="Categoria" aria-label="Categoria" id="category">
+                    <input class="form-control col-3 mr-3" type="text" placeholder="Marca" aria-label="Marca" id="brand">
+                    <button class="btn btn-primary" id="applyFilter">Aplicar filtro</button>
+                </form>
+                <div class="icon-cart"><i class="fa-solid fa-cart-shopping fa-lg"></i><span id="count">0</span></div>
+            </nav>
         </header>
 
         <div class="row">
             <div class="col-md-9" id="productResults"></div>
             <div class="col-md-3" id="shoppingCart">
-                <div class="head"><p>Carrito</p></div>
-                <div id="cartItem">Tu carrito esta vacio</div>
+                <div class="head bg-primary"><p>Carrito</p></div>
+                <div id="cartItem">Tu carrito esta vacio.</div>
             </div>
         </div>
+
+        <footer>
+            <nav class="pb-2">
+                <ul class="pagination justify-content-center" id="pagination"></ul>
+            </nav>
+        </footer>
     </div>
 
     <script src="script.js"></script>
