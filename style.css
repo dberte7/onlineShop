@@ -5,15 +5,42 @@
     font-family: Poppins;
 }
 body{
-    height: auto;
-}
-.container{
     background-color: #f9f6f2;
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+body > footer {
+    margin-top: auto; 
+}
+.container-fluid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 /* Header */
 header{
+    width: 100%;
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
+}
+header #applyFilter {
+    font-size: 10px;
+}
+h1{
+    margin-left: 15px;
+}
+.form-control{
+    font-size: 10px;
 }
 .navbar{
     display: flex;
@@ -30,12 +57,14 @@ header{
 }
 .icon-cart{
     position: relative;
+    font-size: 10px;
+    padding-right: 10px;
 }
 .icon-cart span{
     position: absolute;
     background-color: red;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,32 +114,31 @@ input::-webkit-inner-spin-button {
 h2, h3{
     font-size: 15px;
 }
-.cart-item{
+#cartItem p{
+    font-size: 12px;
+}
+.cart-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 10px;
     background-color: white;
     border-bottom: 1px solid #aaa;
     border-radius: 3px;
     margin-bottom: 7px;
 }
-.cart-item p{
-    font-size: 12px;
-}
-.row-img{
+.cart-item .row-img img {
     width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    border: 1px solid goldenrod;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.rowimg{
-    max-width: 43px;
-    max-height: 43px;
+    height: 35px;
     border-radius: 50%;
+}
+.cart-item p {
+    flex: 1;
+    margin: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
 }
 .fa-trash{
     margin-left: 5px;
@@ -122,9 +150,37 @@ h2, h3{
 }
 .btn-primary{
     border-radius: 50px;
+    font-size: 10px;
 }
 .card-bottom{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 0px;
+    border-top: 1px solid #333;
+    font-size: 12px;
+}
+
+/* header{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #category.form-control,
+    #brand.form-control{
+        margin-top: 10px;
+    }
+    #brand.form-control{
+        margin-bottom: 10px;
+    }
+    .icon-cart{
+        position: absolute;
+        font-size: 10px;
+        top: 130px;
+        right: 10px;
+    } */
