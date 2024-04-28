@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: Poppins;
 }
-body{
+html, body{
     background-color: #f9f6f2;
     margin-left: 15px;
     margin-right: 15px;
@@ -16,9 +16,6 @@ body{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-}
-body > footer {
-    margin-top: auto; 
 }
 .container-fluid {
     flex: 1;
@@ -165,22 +162,3 @@ h2, h3{
     border-top: 1px solid #333;
     font-size: 12px;
 }
-
-/* header{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    #category.form-control,
-    #brand.form-control{
-        margin-top: 10px;
-    }
-    #brand.form-control{
-        margin-bottom: 10px;
-    }
-    .icon-cart{
-        position: absolute;
-        font-size: 10px;
-        top: 130px;
-        right: 10px;
-    } */
