@@ -58,7 +58,7 @@ h1{
 .icon-cart{
     position: relative;
     font-size: 10px;
-    padding-right: 10px;
+    margin-left: 5px;
 }
 .icon-cart span{
     position: absolute;
